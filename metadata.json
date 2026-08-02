@@ -1,0 +1,6 @@
+{
+  "name": "AgriMarket LK",
+  "description": "Farmer-friendly Sri Lankan Agricultural Marketplace app with Sinhala and English support, crop listing form, voice input, district selection, and My Listings manager.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
