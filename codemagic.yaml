@@ -1,0 +1,22 @@
+workflows:
+  android-native-apk:
+    name: Build Android Native APK
+    max_build_duration: 30
+    instance_type: mac_mini_m1
+    environment:
+      groups:
+        - api_keys
+      vars:
+        PACKAGE_NAME: "com.aistudio.agrimarket.srilanka"
+      java: 17
+    scripts:
+      - name: Create local.properties
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+          echo "GEMINI_API_KEY=$GEMINI_API_KEY" >> local.properties
+      - name: Build Android APK
+        script: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+    artifacts:
+      - app/build/outputs/apk/**/*.apk
